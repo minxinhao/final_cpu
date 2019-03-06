@@ -14,11 +14,7 @@ module controller(
     output reg Bne,
     output reg JR,
     output reg JMP,
-    output reg JAL,
-    output reg SRAV,
-    output reg BLEZ,
-    output reg SB
-
+    output reg JAL
 );
 reg SLL, SRA, SRL;
 reg ADD, ADDU, SUB, AND, OR, NOR, SLT, SLTU;
@@ -27,8 +23,6 @@ reg J;
 reg BEQ, BNE;
 reg ADDI, ANDI, ADDIU, SLTI, ORI;
 reg LW, SW;
-reg XORI ;
-reg SRAV_reg , BLEZ_reg , SB_reg ;
 initial begin
     ALU_OP <= 0;
     MemToReg <= 0;
@@ -58,7 +52,6 @@ always@(OP_CODE or FUNC) begin
         SLT = (FUNC == 42) ? 1 : 0;
         SLTU = (FUNC == 43) ? 1 : 0;
         JR = (FUNC == 8) ? 1 : 0;
-        SRAV_reg = (FUNC = 7) ? 1 : 0 ;
         SYSCALL = (FUNC == 12) ? 1 : 0;
         J = 0;
         JAL = 0;
@@ -71,8 +64,6 @@ always@(OP_CODE or FUNC) begin
         ORI = 0;
         LW = 0;
         SW = 0;
-        BLEZ_reg = 0 ; 
-        SB_reg = 0 ;
     end
     else begin
         SLL = 0;
@@ -87,7 +78,6 @@ always@(OP_CODE or FUNC) begin
         SLT = 0;
         SLTU = 0;
         JR = 0;
-        SRAV_reg = 0;
         SYSCALL = 0;
         J = (OP_CODE == 2) ? 1 : 0;
         JAL = (OP_CODE == 3) ? 1 : 0;
@@ -100,35 +90,29 @@ always@(OP_CODE or FUNC) begin
         ORI = (OP_CODE == 13) ? 1 : 0;
         LW = (OP_CODE == 35) ? 1 : 0;
         SW = (OP_CODE == 43) ? 1 : 0;
-        XORI = (OP_CODE == 14) ? 1 : 0;
-        SB_reg = (OP_CODE == 40) ? 1 : 0;
-        BLEZ_reg = (OP_CODE == 6) ? 1 : 0;
     end
     ALU_OP = 
         SLL ? 0 :
-        (SRA | SRAV_reg) ? 1 :
+        SRA ? 1 :
         SRL ? 2 :
-        (ADD | ADDU | ADDI | ADDIU || LW || SW | SB_reg ) ? 5 :
+        (ADD | ADDU | ADDI | ADDIU || LW || SW) ? 5 :
         SUB ? 6 :
         (AND | ANDI) ? 7 : 
-        (OR | ORI) ? 8 :
-        XORI 9 : 
+        (OR | ORI) ? 8 : 
         NOR ? 10 : 
         (SLT | SLTI) ? 11 : 
         SLTU ? 12 : 
         0;
     MemToReg = LW ? 1 : 0;
-    MemWrite = (SW | SB_reg )? 1 : 0;
-    ALU_SRC = (ADDI | ANDI | ADDIU | SLTI | ORI | LW | SW | XORI | SB_reg ) ? 1 : 0;
-    RegWrite = (SLL | SRA | SRL | ADD | ADDU | SUB | AND | OR | NOR | SLT | SLTU | JAL | ADDI | ANDI | ADDIU | SLTI | ORI | LW | XORI | SRAV_reg) ? 1 : 0;
+    MemWrite = SW ? 1 : 0;
+    ALU_SRC = (ADDI | ANDI | ADDIU | SLTI | ORI | LW | SW) ? 1 : 0;
+    RegWrite = (SLL | SRA | SRL | ADD | ADDU | SUB | AND | OR | NOR | SLT | SLTU | JAL | ADDI | ANDI | ADDIU | SLTI | ORI | LW) ? 1 : 0;
     SysCALL = SYSCALL ? 1 : 0;
-    SignedExt = (BEQ | BNE | ADDI | ADDIU | SLTI | LW | SW | SB_reg ) ? 1 : 0;
-    RegDst = (SLL | SRA | SRL | ADD | ADDU | SUB | AND | OR | NOR | SLT | SLTU | SRAV_reg )? 1 : 0;
+    SignedExt = (BEQ | BNE | ADDI | ADDIU | SLTI | LW | SW) ? 1 : 0;
+    RegDst = (SLL | SRA | SRL | ADD | ADDU | SUB | AND | OR | NOR | SLT | SLTU)? 1 : 0;
     Beq = BEQ ? 1 : 0;
     Bne = BNE ? 1 : 0;
     JMP = (J | JAL | JR) ? 1 : 0;
-    SRAV = SRAV_reg ? 1 : 0 ;
-    BLEZ = BLEZ_reg ? 1: 0 ;
 end
 
 endmodule
