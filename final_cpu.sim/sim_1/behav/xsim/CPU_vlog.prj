@@ -1,0 +1,23 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../../Desktop/CPU_mxh/ALU.v" \
+"../../../../../../Desktop/CPU_mxh/IM.v" \
+"../../../../../../Desktop/CPU_mxh/RAM.v" \
+"../../../../../../Desktop/CPU_mxh/RegFile.v" \
+"../../../../../../Desktop/CPU_mxh/controller.v" \
+"../../../../../../Desktop/CPU_mxh/counter.v" \
+"../../../../../../Desktop/CPU_mxh/data_extend.v" \
+"../../../../../../Desktop/CPU_mxh/mux.v" \
+"../../../../../../Desktop/CPU_mxh/mux_4_5.v" \
+"../../../../../../Desktop/CPU_mxh/npc.v" \
+"../../../../../../Desktop/CPU_mxh/pattern.v" \
+"../../../../../../Desktop/CPU_mxh/pc.v" \
+"../../../../../../Desktop/CPU_mxh/pcenable.v" \
+"../../../../../../Desktop/CPU_mxh/syscall.v" \
+"../../../../../../Desktop/CPU_mxh/CPU.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

@@ -1,0 +1,93 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
+| Date         : Wed Mar  6 09:53:44 2019
+| Host         : DESKTOP-2QSU2MN running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file CPU_control_sets_placed.rpt
+| Design       : CPU
+| Device       : xc7a100t
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    23 |
+| Unused register locations in slices containing registers |    59 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      1 |            3 |
+|      2 |            1 |
+|      4 |            1 |
+|     10 |            1 |
+|     11 |            1 |
+|     12 |            3 |
+|    16+ |           13 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              94 |           58 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |             163 |           44 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |              32 |           19 |
+| Yes          | Yes                   | No                     |              68 |           25 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++------------------+------------------------------------+-----------------------------------------+------------------+----------------+
+|   Clock Signal   |            Enable Signal           |             Set/Reset Signal            | Slice Load Count | Bel Load Count |
++------------------+------------------------------------+-----------------------------------------+------------------+----------------+
+|  clk_BUFG        |                                    |                                         |                1 |              1 |
+|  clock2/clk1     |                                    | choose_display_instance/d/an[7]_i_1_n_1 |                1 |              1 |
+|  clock2/clk1     |                                    | choose_display_instance/d/Q[0]          |                1 |              1 |
+|  clock2/clk1     |                                    | choose_display_instance/d/Q[2]          |                1 |              2 |
+|  clock2/clk1     |                                    | choose_display_instance/d/Q[1]          |                1 |              4 |
+|  clk_n_IBUF_BUFG |                                    |                                         |               10 |             10 |
+|  clock2/clk1     |                                    |                                         |                8 |             11 |
+|  clk_BUFG        | pc_instance/JMP                    | rst_IBUF                                |                3 |             12 |
+|  clk_BUFG        | pc_instance/branch                 | rst_IBUF                                |                3 |             12 |
+|  clk_BUFG        | RegFile_instance/temp              | rst_IBUF                                |                3 |             12 |
+|  clk_n_IBUF_BUFG |                                    | nolabel_line18/rate2/clk_N              |                8 |             31 |
+|  clk_n_IBUF_BUFG |                                    | nolabel_line18/rate4/clk_N              |                8 |             31 |
+|  clk_n_IBUF_BUFG |                                    | clock2/clk_N                            |                8 |             31 |
+|  clk_n_IBUF_BUFG |                                    | nolabel_line18/rate3/clk_N              |                8 |             31 |
+|  clk_n_IBUF_BUFG |                                    | nolabel_line18/rate1/clk_N              |                8 |             31 |
+|  clk_BUFG        | RegFile_instance/E[0]              | rst_IBUF                                |               19 |             32 |
+|  clk_BUFG        | RegFile_instance/pc_out_reg[31][0] | rst_IBUF                                |               16 |             32 |
+|  n_0_1691_BUFG   |                                    |                                         |               39 |             72 |
+|  clk_BUFG        | pc_instance/RegWrite               |                                         |               12 |             96 |
+|  clk_BUFG        | ALU_instance/data_reg[7]_0         |                                         |               32 |            128 |
+|  clk_BUFG        | ALU_instance/data_reg[7]           |                                         |               32 |            128 |
+|  clk_BUFG        | ALU_instance/data_reg[7]_2         |                                         |               32 |            128 |
+|  clk_BUFG        | ALU_instance/data_reg[7]_1         |                                         |               32 |            128 |
++------------------+------------------------------------+-----------------------------------------+------------------+----------------+
+
+

@@ -1,0 +1,35 @@
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto ace0ec9cfdb240c5a1aae3d46eefede6 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot CPU_tb_behav xil_defaultlib.CPU_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port GO [/home/sddyzjh/Desktop/CPU_mxh/CPU_tb.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.PC
+Compiling module xil_defaultlib.IM
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.mux_2_5
+Compiling module xil_defaultlib.mux_4_5
+Compiling module xil_defaultlib.mux
+Compiling module xil_defaultlib.RegFile
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.sign_ex_16to32
+Compiling module xil_defaultlib.zero_ex_16to32
+Compiling module xil_defaultlib.npc
+Compiling module xil_defaultlib.RAM
+Compiling module xil_defaultlib.syscall
+Compiling module xil_defaultlib.hex_to_dec
+Compiling module xil_defaultlib.pattern
+Compiling module xil_defaultlib.display
+Compiling module xil_defaultlib.choose_display
+Compiling module xil_defaultlib.counter
+Compiling module xil_defaultlib.three_counter
+Compiling module xil_defaultlib.D_FF
+Compiling module xil_defaultlib.pcenable
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.CPU_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot CPU_tb_behav

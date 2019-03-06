@@ -1,0 +1,43 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/sddyzjh/Desktop/CPU_mxh/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/sddyzjh/Desktop/CPU_mxh/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/sddyzjh/Desktop/CPU_mxh/IM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IM
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/sddyzjh/Desktop/CPU_mxh/RAM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RAM
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/sddyzjh/Desktop/CPU_mxh/RegFile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegFile
+WARNING: [VRFC 10-756] identifier regs is used before its declaration [/home/sddyzjh/Desktop/CPU_mxh/RegFile.v:8]
+WARNING: [VRFC 10-756] identifier regs is used before its declaration [/home/sddyzjh/Desktop/CPU_mxh/RegFile.v:9]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/sddyzjh/Desktop/CPU_mxh/controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/sddyzjh/Desktop/CPU_mxh/counter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module counter
+INFO: [VRFC 10-311] analyzing module three_counter
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/sddyzjh/Desktop/CPU_mxh/data_extend.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sign_ex_16to32
+INFO: [VRFC 10-311] analyzing module zero_ex_16to32
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/sddyzjh/Desktop/CPU_mxh/hex_to_dec.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hex_to_dec
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/sddyzjh/Desktop/CPU_mxh/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-311] analyzing module mux_2_5
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/sddyzjh/Desktop/CPU_mxh/mux_4_5.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux_4_5
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/sddyzjh/Desktop/CPU_mxh/npc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module npc
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/sddyzjh/Desktop/CPU_mxh/pattern.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pattern
+INFO: [VRFC 10-311] analyzing module choose_display
+INFO: [VRFC 10-311] analyzing module display
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/sddyzjh/Desktop/CPU_mxh/pc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/sddyzjh/Desktop/CPU_mxh/pcenable.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module D_FF
+INFO: [VRFC 10-311] analyzing module pcenable
+INFO: [VRFC 10-2458] undeclared symbol Q, assumed default net type wire [/home/sddyzjh/Desktop/CPU_mxh/pcenable.v:29]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/sddyzjh/Desktop/CPU_mxh/syscall.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module syscall
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/sddyzjh/Desktop/CPU_mxh/CPU_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU_tb
