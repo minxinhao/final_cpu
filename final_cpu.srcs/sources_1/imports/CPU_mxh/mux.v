@@ -20,3 +20,15 @@ module mux_2_5(input choose,input [4:0] data1,input [4:0] data2,output [4:0] out
     end
     assign out = tmp;
 endmodule
+
+module mux_2_4(input choose,input [3:0] data1,input [3:0] data2,output [3:0] out);
+    reg [3:0] tmp;
+    always @(*) 
+    begin
+        if(choose == 0)
+            tmp = data1;
+         else
+            tmp = data2;
+    end
+    assign out = tmp;
+endmodule

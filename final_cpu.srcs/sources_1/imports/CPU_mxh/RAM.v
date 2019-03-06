@@ -5,7 +5,7 @@
 module RAM( addr,din,mode,WE,clk,clr,dout);
 input [31:0] addr;
 input [31:0] din;
-input [1:0] mode;
+input [3:0] mode;
 input WE,clk,clr;
 output [31:0] dout;
 //?20 位地址？？这里实现的是10位地址
@@ -13,9 +13,72 @@ reg [7:0] mem1[1023:0], mem2[1023:0],mem3[1023:0],mem4[1023:0];
 // reg  [31:0] dout;
 
 
+
+assign dout = {
+    mem4[addr[21:2]], 
+    mem3[addr[21:2]],
+    mem2[addr[21:2]],
+    mem1[addr[21:2]]
+};
+// }{[7:0] <= 
+//     dout[15:8] <= 
+//     dout[23:16] <= 
+//     dout[31:24] <= ;
+
+always@(posedge clk )
+begin
+
+if(WE)
+  begin
+        // mem1[addr[21:2]] <= din[7:0];
+        //   mem2[addr[21:2]] <= din[15:8];
+        //   mem3[addr[21:2]] <= din[23:16];
+        //   mem4[addr[21:2]] <= din[31:24];
+
+    case(mode)
+    4'b1111:
+    begin
+    	mem1[addr[21:2]] <= din[7:0];
+        mem2[addr[21:2]] <= din[15:8];
+        mem3[addr[21:2]] <= din[23:16];
+        mem4[addr[21:2]] <= din[31:24];
+    end
+    4'b0001:
+    begin
+    	mem1[addr[21:2]] <= din[7:0];
+    end
+    4'b0010:
+    begin
+        mem2[addr[21:2]] <= din[15:8];
+    end
+    4'b0100:
+    begin
+        mem3[addr[21:2]] <= din[23:16];
+    end
+    4'b1000:
+    begin
+        mem4[addr[21:2]] <= din[31:24];
+    end
+    4'b0011:
+    begin
+		mem1[addr[21:2]] <= din[7:0];
+        mem2[addr[21:2]] <= din[15:8];    
+	end
+	4'b1100:
+    begin
+		mem3[addr[21:2]] <= din[23:16];
+        mem4[addr[21:2]] <= din[31:24];
+    end
+
+  end
+end  
+
+
+
+
 initial
 begin
-  mem1[0]<=0;  mem2[0]<=0; mem3[0]<=0; mem4[0]<=0;
+mem1[0]<=0;  mem2[0]<=0; mem3[0]<=0; mem4[0]<=0;
 mem1[1]<=0;  mem2[1]<=0; mem3[1]<=0; mem4[1]<=0;
 mem1[2]<=0;  mem2[2]<=0; mem3[2]<=0; mem4[2]<=0;
 mem1[3]<=0;  mem2[3]<=0; mem3[3]<=0; mem4[3]<=0;
@@ -1041,69 +1104,4 @@ mem1[1022]<=0;  mem2[1022]<=0; mem3[1022]<=0; mem4[1022]<=0;
 mem1[1023]<=0;  mem2[1023]<=0; mem3[1023]<=0; mem4[1023]<=0;
 end
 
-
-assign dout = {
-    mem4[addr[21:2]], 
-    mem3[addr[21:2]],
-    mem2[addr[21:2]],
-    mem1[addr[21:2]]
-};
-// }{[7:0] <= 
-//     dout[15:8] <= 
-//     dout[23:16] <= 
-//     dout[31:24] <= ;
-
-always@(posedge clk )
-begin
-
-if(WE)
-  begin
-        mem1[addr[21:2]] <= din[7:0];
-          mem2[addr[21:2]] <= din[15:8];
-          mem3[addr[21:2]] <= din[23:16];
-          mem4[addr[21:2]] <= din[31:24];
-   /*case(mode)
-    2'b00: begin 
-      mem1[addr[21:2]] <= din[7:0];
-       mem2[addr[21:2]] <= din[15:8];
-        mem3[addr[21:2]] <= din[23:16];
-         mem4[addr[21:2]] <= din[31:24];
-     end
-     2'b01:begin
-      case(addr[1:0])
-        2'b00:begin
-          mem1[addr[21:2]] <= din[7:0];
-           mem2[addr[21:2]] <= 0;
-           mem3[addr[21:2]] <= 0;
-            mem4[addr[21:2]] <= 0;
-         end
-         2'b01:begin
-                  mem1[addr[21:2]] <= 0;
-                   mem2[addr[21:2]] <= din[7:0];
-                   mem3[addr[21:2]] <= 0;
-                    mem4[addr[21:2]] <= 0;
-         end
-         2'b10:begin
-                mem1[addr[21:2]] <= 0;
-                mem2[addr[21:2]] <= 0;
-                mem3[addr[21:2]] <= din[7:0];
-                mem4[addr[21:2]] <= 0;
-         end
-         2'b11:begin
-              mem1[addr[21:2]] <= 0;
-              mem2[addr[21:2]] <= 0;
-              mem3[addr[21:2]] <= 0;
-              mem4[addr[21:2]] <= din[7:0];
-        end
-       endcase
-     end
-     2'b10:begin
-     
-     end
-     2'b11:begin
-     
-     end
-    endcase*/
-  end
-end  
 endmodule

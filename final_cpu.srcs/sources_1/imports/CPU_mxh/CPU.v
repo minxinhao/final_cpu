@@ -47,18 +47,28 @@ module CPU (input clk_n,
     wire JR;
     wire JMP;
     wire JAL;
+    wire SRAV;
+    wire SB ;
+    wire BLEZ ;
     //R1# , R2#,  W#
     wire [4:0]RF_R1_in, RF_R2_in, RF_W_in;
     // wire RF_WE_in;
     parameter [4:0]Constant_two = 5'h02;
     parameter [4:0]Constant_four = 5'h04;
     parameter [4:0]Constant_one_f = 5'h1f;
+    // parameter [3:0]Constant_one = 4'h02;
+    // parameter [3:0]Constant_four_one_bit = 5'h04;
+    // parameter [3:0]Constant_one_f = 5'h1f;
+    // parameter [3:0]Constant_one_f = 5'h1f;
+
     wire [31:0]RF_DIN_in, RF_R1_out, RF_R2_out, RF_DIN_temp;
     wire ALU_Equal_out;
     wire [31:0]ALU_A_in, ALU_B_in;
     wire [4:0]ALU_shamt_in;
     wire [31:0]ALU_Result_out, ALU_Result2_out;
     wire [31:0]RAM_addr_in, RAM_din_in;
+    wire [31:0]RAM_din_shift;
+    wire [3:0]RAM_SEL,RAM_SEL_shift;
     wire RAM_WE_in;
     wire [31:0]RAM_dout_out;
     wire branch; // tiao jian fen zhi zhuan yi cheng gong de biao zhi
@@ -108,12 +118,16 @@ module controller(
     output reg Bne,
     output reg JR,
     output reg JMP,
-    output reg JAL
+    output reg JAL,
+    output reg SRAV,
+    output reg BLEZ,
+    output reg SB
+
 );
 */
 controller contro_instance(OP_CODE , FUNC , ALU_OP , MemToReg, MemWrite , ALU_SRC , 
 							RegWrite , SysCALL , SignedExt , RegDst ,
-							Beq , Bne , JR , JMP , JAL);
+							Beq , Bne , JR , JMP , JAL , SRAV , BLEZ , SB);
 /*
 module mux(input choose,input [31:0] data1,
 		   input [31:0] data2,output [31:0] out);
@@ -155,7 +169,8 @@ module ALU(
 */
 assign ALU_A_in = RF_R1_out;
 mux mux_ALU_inputB(ALU_SRC, RF_R2_out, signed_ext_imm, ALU_B_in);
-assign ALU_shamt_in = sa;
+// assign ALU_shamt_in = sa;
+mux_2_5 mux_ALU_shamt_in(SRAV , sa , R1[4:0] , ALU_shamt_in);
 ALU ALU_instance(ALU_A_in, ALU_B_in, ALU_OP, ALU_shamt_in, ALU_Result_out, ALU_Result2_out, ALU_Equal_out);
 /*
 module npc( input rst,clk,signedext,jr,branch,jmp,
@@ -172,9 +187,16 @@ npc npc_instance(rst, clk, SignedExt, JR, branch, JMP, PC_out, RF_R1_out, imm, i
 module RAM( addr,din,mode,WE,clk,clr,dout);
 */
 assign RAM_addr_in = {20'b0000_0000_0000_0000_0000, ALU_Result_out[11:2], 2'b00};
-assign RAM_din_in = RF_R2_out;
+mux4 mux_RAM_din_shift(ALU_Result_out[1:0] , RF_R2_out , {RF_R2_out[23:0],8'b0000_0000}   , 
+                       {RF_R2_out[16:0],16'b0000_0000_0000_0000},  {RF_R2_out[8:0],24'b0000_0000_0000_0000_0000_0000} , RAM_din_shift);
+mux mux_RAM_din_in(SB ,RF_R2_out , RAM_din_shift ,RAM_din_in );
+//assign RAM_din_in = RF_R2_out;
+
+mux_4_4 mux_RAM_SEL_shift(ALU_Result_out[1:0] ,4'b0001 , 4'b0010, 4'b0100 ,4'b1000 , RAM_SEL_shift ) ;
+mux_2_4 mux_RAM_SEL(SB ,4'b1111 , RAM_SEL_shift ,RAM_SEL ) ;
+
 assign RAM_WE_in = MemWrite;
-RAM RAM_instance(RAM_addr_in, RAM_din_in, 2'b00, RAM_WE_in, clk, rst, RAM_dout_out);
+RAM RAM_instance(RAM_addr_in, RAM_din_in, RAM_SEL, RAM_WE_in, clk, rst, RAM_dout_out);
 /*
 module syscall( input [31:0]r1,mwdata,input clk,rst,sys,
 output [31:0]LedData,output reg led,halt,pause );  //?reg类型的信号？
