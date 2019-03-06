@@ -1,0 +1,43 @@
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0 ~F5 ~F4 ~F3 ~F2 ~F1 ~F0 +	0	0	0	0
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0 ~F5 ~F4 ~F3 ~F2  F1  F0 +	0	0	0	1
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0 ~F5 ~F4 ~F3 ~F2  F1 ~F0 +	0	0	1	0
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3 ~F2 ~F1 ~F0 +	0	1	0	1
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3 ~F2 ~F1  F0 +	0	1	0	1
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3 ~F2  F1 ~F0 +	0	1	1	0
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3  F2 ~F1 ~F0 +	0	1	1	1
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3  F2 ~F1  F0 +	1	0	0	0
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3  F2  F1  F0 +	1	0	1	0
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4  F3 ~F2  F1 ~F0 +	1	0	1	1
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4  F3 ~F2  F1  F0 +	1	1	0	0
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0 ~F5 ~F4  F3 ~F2 ~F1 ~F0 +	X	X	X	X
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0 ~F5 ~F4  F3  F2 ~F1 ~F0 +	X	X	X	X
+~OP5 ~OP4 ~OP3 ~OP2  OP1 ~OP0 +							X	X	X	X
+~OP5 ~OP4 ~OP3 ~OP2  OP1  OP0 +							X	X	X	X
+~OP5 ~OP4 ~OP3  OP2 ~OP1 ~OP0 +							X	X	X	X
+~OP5 ~OP4 ~OP3  OP2 ~OP1  OP0 +							X	X	X	X
+~OP5 ~OP4  OP3 ~OP2 ~OP1 ~OP0 +							0	1	0	1
+~OP5 ~OP4  OP3  OP2 ~OP1 ~OP0 +							0	1	1	1
+~OP5 ~OP4  OP3 ~OP2 ~OP1  OP0 +							0	1	0	1
+~OP5 ~OP4  OP3 ~OP2  OP1 ~OP0 +							1	0	1	1
+~OP5 ~OP4  OP3  OP2 ~OP1  OP0 +							1	0	0	0
+ OP5 ~OP4 ~OP3 ~OP2  OP1  OP0 +							0	1	0	1
+ OP5 ~OP4  OP3 ~OP2  OP1  OP0 +							0	1	0	1
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0 ~F5 ~F4 ~F3  F2  F1  F0 +	1	0	0	1
+~OP5 ~OP4  OP3  OP2  OP1 ~OP0 +							0	0	0	0
+ OP5 ~OP4  OP3 ~OP2 ~OP1 ~OP0 +							0	1	0	1
+~OP5 ~OP4 ~OP3  OP2  OP1  OP0 +							0	0	0	0
+
+
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0 ~F5 ~F4 ~F3 ~F2  F1  F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3 ~F2 ~F1 ~F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3 ~F2 ~F1  F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3  F2 ~F1 ~F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4  F3 ~F2  F1 ~F0 +	
+~OP5 ~OP4  OP3 ~OP2 ~OP1 ~OP0 +							
+~OP5 ~OP4  OP3  OP2 ~OP1 ~OP0 +							
+~OP5 ~OP4  OP3 ~OP2 ~OP1  OP0 +							
+~OP5 ~OP4  OP3 ~OP2  OP1 ~OP0 +							
+ OP5 ~OP4 ~OP3 ~OP2  OP1  OP0 +							
+ OP5 ~OP4  OP3 ~OP2  OP1  OP0 +							
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0 ~F5 ~F4 ~F3  F2  F1  F0 +	
+ OP5 ~OP4  OP3 ~OP2 ~OP1 ~OP0 +							

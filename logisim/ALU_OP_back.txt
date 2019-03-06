@@ -1,0 +1,45 @@
+S0:
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0 ~F5 ~F4 ~F3 ~F2  F1  F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3 ~F2 ~F1 ~F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3 ~F2 ~F1  F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3  F2 ~F1 ~F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4  F3 ~F2  F1 ~F0 +	
+~OP5 ~OP4  OP3 ~OP2 ~OP1 ~OP0 +							
+~OP5 ~OP4  OP3  OP2 ~OP1 ~OP0 +							
+~OP5 ~OP4  OP3 ~OP2 ~OP1  OP0 +							
+~OP5 ~OP4  OP3 ~OP2  OP1 ~OP0 +							
+ OP5 ~OP4 ~OP3 ~OP2  OP1  OP0 +							
+ OP5 ~OP4  OP3 ~OP2  OP1  OP0 +							
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0 ~F5 ~F4 ~F3  F2  F1  F0 +	
+ OP5 ~OP4  OP3 ~OP2 ~OP1 ~OP0 +		
+
+S1:
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0 ~F5 ~F4 ~F3 ~F2  F1 ~F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3 ~F2  F1 ~F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3  F2 ~F1 ~F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3  F2  F1  F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4  F3 ~F2  F1 ~F0 +	
+~OP5 ~OP4  OP3  OP2 ~OP1 ~OP0 +							
+~OP5 ~OP4  OP3 ~OP2  OP1 ~OP0 +		
+
+S2:
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3 ~F2 ~F1 ~F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3 ~F2 ~F1  F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3 ~F2  F1 ~F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3  F2 ~F1 ~F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4  F3 ~F2  F1  F0 +	
+~OP5 ~OP4  OP3 ~OP2 ~OP1 ~OP0 +							
+~OP5 ~OP4  OP3  OP2 ~OP1 ~OP0 +							
+~OP5 ~OP4  OP3 ~OP2 ~OP1  OP0 +							
+OP5 ~OP4 ~OP3 ~OP2  OP1  OP0 +							
+OP5 ~OP4  OP3 ~OP2  OP1  OP0 +							
+OP5 ~OP4  OP3 ~OP2 ~OP1 ~OP0 +	
+
+S3:
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3  F2 ~F1  F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4 ~F3  F2  F1  F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4  F3 ~F2  F1 ~F0 +	
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0  F5 ~F4  F3 ~F2  F1  F0 +		
+~OP5 ~OP4  OP3 ~OP2  OP1 ~OP0 +							
+~OP5 ~OP4  OP3  OP2 ~OP1  OP0 +								
+~OP5 ~OP4 ~OP3 ~OP2 ~OP1 ~OP0 ~F5 ~F4 ~F3  F2  F1  F0 +	
