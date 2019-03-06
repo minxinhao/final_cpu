@@ -1,12 +1,12 @@
 `timescale 1ns/1ps
 module CPU (input clk_n,
-			input rst,
+            input rst,
             input GO,
-			//input [3:0]led_in,
-			input [1:0]clkswitch,
-			input [1:0]dispmode,
-			output [7:0]an,
-			output [7:0]seg
+            //input [3:0]led_in,
+            input [1:0]clkswitch,
+            input [1:0]dispmode,
+            output [7:0]an,
+            output [7:0]seg
     );
     
     wire clk,clk1;
@@ -78,13 +78,13 @@ module CPU (input clk_n,
     wire [15:0]unconditional_branch_number;
     wire [15:0]branch_succeeded_number;
     wire [15:0]period_number;
-	assign  OP_CODE = IR_out[31:26];
-	assign  FUNC = IR_out[5:0];
-	assign  rs = IR_out[25:21];
-	assign  rt = IR_out[20:16];
-	assign  rd = IR_out[15:11];
-	assign  instr_index = IR_out[25:0];
-	assign  imm = IR_out[15:0];
+    assign  OP_CODE = IR_out[31:26];
+    assign  FUNC = IR_out[5:0];
+    assign  rs = IR_out[25:21];
+    assign  rt = IR_out[20:16];
+    assign  rd = IR_out[15:11];
+    assign  instr_index = IR_out[25:0];
+    assign  imm = IR_out[15:0];
     assign  sa = IR_out[10:6];
 /*
 module PC (nextpc_in, enable_in, clk_in, rst_in, pc_out);
@@ -126,14 +126,14 @@ module controller(
 );
 */
 controller contro_instance(OP_CODE , FUNC , ALU_OP , MemToReg, MemWrite , ALU_SRC , 
-							RegWrite , SysCALL , SignedExt , RegDst ,
-							Beq , Bne , JR , JMP , JAL , SRAV , BLEZ , SB);
+                            RegWrite , SysCALL , SignedExt , RegDst ,
+                            Beq , Bne , JR , JMP , JAL , SRAV , BLEZ , SB);
 /*
 module mux(input choose,input [31:0] data1,
-		   input [31:0] data2,output [31:0] out);
+           input [31:0] data2,output [31:0] out);
 module mux4(input [1:0] choose,input [31:0] data1,
-			input [31:0] data2,input [31:0] data3,
-			input [31:0] data4,output [31:0] out);
+            input [31:0] data2,input [31:0] data3,
+            input [31:0] data4,output [31:0] out);
 module mux4(input [1:0] choose,input [4:0] data1,
             input [4:0] data2,input [4:0] data3,
             input [4:0] data4,output [4:0] out);
@@ -157,20 +157,20 @@ RegFile RegFile_instance (
     clk, RF_R1_out, RF_R2_out);
 /*
 module ALU(
-	input [31:0] X,
-	input [31:0] Y,
-	input [3:0] ALU_OP,
-	input [4:0] shamt,
+    input [31:0] X,
+    input [31:0] Y,
+    input [3:0] ALU_OP,
+    input [4:0] shamt,
 
-	output reg [31:0] Result,
-	output reg [31:0] Result2,
-	output Equal
-	);
+    output reg [31:0] Result,
+    output reg [31:0] Result2,
+    output Equal
+    );
 */
 assign ALU_A_in = RF_R1_out;
 mux mux_ALU_inputB(ALU_SRC, RF_R2_out, signed_ext_imm, ALU_B_in);
 // assign ALU_shamt_in = sa;
-mux_2_5 mux_ALU_shamt_in(SRAV , sa , R1[4:0] , ALU_shamt_in);
+mux_2_5 mux_ALU_shamt_in(SRAV , sa , RF_R1_out [4:0] , ALU_shamt_in);
 ALU ALU_instance(ALU_A_in, ALU_B_in, ALU_OP, ALU_shamt_in, ALU_Result_out, ALU_Result2_out, ALU_Equal_out);
 /*
 module npc( input rst,clk,signedext,jr,branch,jmp,
@@ -181,14 +181,14 @@ module npc( input rst,clk,signedext,jr,branch,jmp,
             output wire [31:0] imm_ext //立即�?
 );
 */
-assign branch = (Beq & ALU_Equal_out) | (Bne & ~ALU_Equal_out);
+assign branch = (Beq & ALU_Equal_out) | (Bne & ~ALU_Equal_out) | (BLEZ & ~(RF_R1_out>0));
 npc npc_instance(rst, clk, SignedExt, JR, branch, JMP, PC_out, RF_R1_out, imm, instr_index, nextPC, signed_ext_imm);
 /*
 module RAM( addr,din,mode,WE,clk,clr,dout);
 */
 assign RAM_addr_in = {20'b0000_0000_0000_0000_0000, ALU_Result_out[11:2], 2'b00};
 mux4 mux_RAM_din_shift(ALU_Result_out[1:0] , RF_R2_out , {RF_R2_out[23:0],8'b0000_0000}   , 
-                       {RF_R2_out[16:0],16'b0000_0000_0000_0000},  {RF_R2_out[8:0],24'b0000_0000_0000_0000_0000_0000} , RAM_din_shift);
+                       {RF_R2_out[15:0],16'b0000_0000_0000_0000},  {RF_R2_out[7:0],24'b0000_0000_0000_0000_0000_0000} , RAM_din_shift);
 mux mux_RAM_din_in(SB ,RF_R2_out , RAM_din_shift ,RAM_din_in );
 //assign RAM_din_in = RF_R2_out;
 
