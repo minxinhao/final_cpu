@@ -26,7 +26,7 @@ module pcenable(
     output enable
     );
 
-    D_FF d(clk,rst,(~halt) & go,Q);
-    assign enable = ((~Q) ^ (halt | pause));
+//    D_FF d(clk,rst,(~halt) & go,Q);
+    assign enable = ( ~halt & ~pause )|go;
 
 endmodule

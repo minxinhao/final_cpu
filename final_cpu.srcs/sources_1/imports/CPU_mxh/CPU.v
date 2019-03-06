@@ -15,7 +15,7 @@ module CPU (input clk_n,
         input [1:0]rate,
         output reg clk_N
         );*/
-    clk_divider(clk_n,clkswitch,clk);
+    clk_divider clock (clk_n,clkswitch,clk);
     //divider clock1(clk_n,clk); 
     divider #(10000)clock2(clk_n,clk1);//for display
     // pc out
@@ -181,7 +181,7 @@ module npc( input rst,clk,signedext,jr,branch,jmp,
             output wire [31:0] imm_ext //立即�?
 );
 */
-assign branch = (Beq & ALU_Equal_out) | (Bne & ~ALU_Equal_out) | (BLEZ & ~(RF_R1_out>0));
+assign branch = (Beq & ALU_Equal_out) | (Bne & ~ALU_Equal_out) | (BLEZ & (RF_R1_out[31] || RF_R1_out==0));
 npc npc_instance(rst, clk, SignedExt, JR, branch, JMP, PC_out, RF_R1_out, imm, instr_index, nextPC, signed_ext_imm);
 /*
 module RAM( addr,din,mode,WE,clk,clr,dout);
