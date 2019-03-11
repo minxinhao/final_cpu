@@ -18,7 +18,8 @@ addi $s5,$zero,1       #计数器累加值
 IntLoop:
 add $s0,$zero,$s6   
 
-IntLeftShift:       
+IntLeftShift:     
+  
 
 
 sll $s0, $s0, 4  
