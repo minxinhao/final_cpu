@@ -58,7 +58,7 @@ always@(OP_CODE or FUNC) begin
         SLT = (FUNC == 42) ? 1 : 0;
         SLTU = (FUNC == 43) ? 1 : 0;
         JR = (FUNC == 8) ? 1 : 0;
-        SRAV_reg = (FUNC = 7) ? 1 : 0 ;
+        SRAV_reg = (FUNC == 7) ? 1 : 0 ;
         SYSCALL = (FUNC == 12) ? 1 : 0;
         J = 0;
         JAL = 0;
@@ -112,7 +112,7 @@ always@(OP_CODE or FUNC) begin
         SUB ? 6 :
         (AND | ANDI) ? 7 : 
         (OR | ORI) ? 8 :
-        XORI 9 : 
+        XORI ? 9 : 
         NOR ? 10 : 
         (SLT | SLTI) ? 11 : 
         SLTU ? 12 : 
